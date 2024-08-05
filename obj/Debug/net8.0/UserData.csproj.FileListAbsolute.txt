@@ -28,3 +28,4 @@ C:\Users\bk10s\UserData\obj\Debug\net8.0\refint\UserData.dll
 C:\Users\bk10s\UserData\obj\Debug\net8.0\UserData.pdb
 C:\Users\bk10s\UserData\obj\Debug\net8.0\UserData.genruntimeconfig.cache
 C:\Users\bk10s\UserData\obj\Debug\net8.0\ref\UserData.dll
+C:\Users\bk10s\UserData\obj\Debug\net8.0\UserData.sourcelink.json
