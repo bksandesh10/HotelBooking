@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
 
+hello i am sandesh bk an this is my Hotel booking website. In this website you can check hotel room and book rooms . I used angular and asp.net , angular for frontend and asp.net for backend.
+to see the project first clone main and HotelApi , ApiBacked and fist run Api folder then run angular project
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
