@@ -1,0 +1,94 @@
+<img src="assets/roomone.jpg" class="room-one" alt="" height="400">
+<div class="centered">Check Availability</div>
+
+<div class="form-container">
+    <form class="row g-3 needs-validation" (ngSubmit)="filterRooms()" novalidate>
+        <div class="col-md-4">
+            <label for="validationCustom01" class="form-label">Date</label>
+            <input type="string" class="form-control" id="validationCustom01" placeholder="Date.."
+                [(ngModel)]="selectedDate" name="date" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustom02" class="form-label">Room Type</label>
+            <select class="form-control" id="validationCustom02" [(ngModel)]="selectedRoomType" name="roomType"
+                required>
+                <option value="">Select...</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Standard">Standard</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </form>
+</div>
+
+<h1 class="room-head">Hotel Rooms</h1>
+<div class="card-container">
+    <div class="card" style="width: 18rem;" *ngFor="let room of filteredRooms">
+        <img [src]="getImageSrc(room.imageUrl)" class="card-img-top" alt="Room Image" height="200">
+        <div class="card-body">
+            <h5 class="card-title">{{ room.roomName }}</h5>
+            <p class="card-text">{{ room.description }}</p>
+            <p class="card-text">Availability: {{room.date}}</p>
+
+            <button type="button" class="btn btn-primary" (click)="openModal(room)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Book
+              </button>
+            </div>
+          </div>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Your Detail</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form (ngSubmit)="submitForm()">
+                    <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label">Name:</label>
+                      <input type="text" class="form-control" id="recipient-name" [(ngModel)]="userData.name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="userData.email" name="email" required>
+                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1" [(ngModel)]="userData.check" name="check">
+                      <label class="form-check-label" for="exampleCheck1">Check in</label>
+                    </div>
+                    <button id="liveToastBtn" class="btn btn-primary">Submit</button>
+
+                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                      <div class="toast-header">
+                        <img src="assets/icon.png" class="rounded me-2" alt="icon" width="50" height="50">
+                        <strong class="me-auto">Bookit</strong>
+                        <small>ThANK YOU</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                      </div>
+                      <div class="toast-body">
+                    Your room is booked
+                      </div>
+                    </div>
+                    
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+         
